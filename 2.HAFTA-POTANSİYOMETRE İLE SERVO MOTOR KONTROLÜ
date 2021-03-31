@@ -1,0 +1,17 @@
+#include <Servo.h>
+Servo SERVO90;
+Servo Servo180;
+void setup() {
+Serial.begin(9600);
+SERVO90.attach(3);
+Servo180.attach(5);
+}
+void loop() {
+int potdeger = analogRead(A0);
+int potdeger2 = analogRead(A1);
+int servodeger2 = map(potdeger, 0, 1023,0,90);
+int servodeger = map(potdeger2, 0, 1023, 0, 180);
+SERVO90.write(servodeger);
+Servo180.write(servodeger2);
+delay(60);
+}
